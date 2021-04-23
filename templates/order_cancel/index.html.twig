@@ -1,0 +1,14 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Echec de votre paiement-votre site d'E_commerce{% endblock %}
+{% block content %}
+
+    <p>Bonjour <strong>{{ order.user.firstname }} {{ order.user.lastname }}</strong> , <br><br>
+        Il semblerait que votre paiement ait echoué pour votre commande n° <strong>{{ order.reference }}</strong>.<br>
+        Une confirmation d'erreur vient de vous etre envoyée à l'adresse mail renseignée <strong>{{ order.user.email }} </strong>
+    <hr>
+    </p>
+    <a href="{{ path('order') }}" class="btn btn-success">Réesayer le paiement </a>
+
+{% endblock %}
+
