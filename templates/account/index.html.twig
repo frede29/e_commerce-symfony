@@ -9,8 +9,29 @@
     Bienvenue  {{ app.user.firstname }} dans votre compte.C'est dans cet espace que vous allez gerer vos informations personnelles
 
    <hr>
-    <a href="{{ path('account_password') }}">Modifier mon mot de passe</a><br>
-    <a href="{{ path('account_address') }}">Gerer mon adresse</a><br>
-    <a href="{{ path('account_order') }}">Mes commandes</a>
+    {% if is_granted('ROLE_ADMIN') %}
+    <a href="/admin">Vous etes un administrateur,voulez vous accéder au backoffice?</a><br>
+    {% endif %}
+
+    <div class="row">
+        <div class="col-md-4">
+            <div class="account-item text-center">
+                <a href="{{ path('account_password') }}">Modifier mon mot de passe</a><br>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="account-item text-center">
+                <a href="{{ path('account_address') }}">Gerer mon adresse</a><br>
+            </div>
+        </div>
+        <div class="col-md-4">
+            <div class="account-item text-center">
+                <a href="{{ path('account_order') }}">Mes commandes</a>
+            </div>
+        </div>
+    </div>
+
+
+
     <hr>
 {% endblock %}

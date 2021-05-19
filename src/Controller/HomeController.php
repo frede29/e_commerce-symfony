@@ -24,6 +24,7 @@ class HomeController extends AbstractController
     public function index(): Response
     {
 
+
         $products = $this->entityManager->getRepository(Product::class)->findByIsBest(1);
         $headers = $this->entityManager->getRepository(Header::class)->findall();
        // $mail=new Mail();

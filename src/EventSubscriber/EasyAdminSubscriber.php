@@ -64,7 +64,7 @@ class EasyAdminSubscriber implements EventSubscriberInterface
 
         $tmp_name= $_FILES[$entityName]['tmp_name']['illustration'];
             $filename = uniqid();
-            $extension=pathinfo($_FILES[$entityName]['name']['illustration'], PATHINFO_EXTENSION);
+            $extension=pathinfo($_FILES[$entityName]['name']['illustration']['file'], PATHINFO_EXTENSION);
            $project_dir=$this->appKernel->getProjectDir();
             move_uploaded_file($tmp_name,$project_dir.'/public/uploads/'.$filename.'.'.$extension);
 
